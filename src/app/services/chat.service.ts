@@ -12,7 +12,7 @@ export class ChatService {
 
   sendMessage( mensaje: string ) {
     const payload = {
-      de: 'Danilo',
+      de: this.wsService.getUsuario().nombre,
       cuerpo: mensaje
     };
 
@@ -23,5 +23,10 @@ export class ChatService {
   getMessages() {
     // enviamos el observable donde lo necesitemos
     return this.wsService.listen('mensaje-nuevo');
+  }
+
+  // Mensajes privados
+  getMessagePrivate() {
+    return this.wsService.listen('mensaje-privado');
   }
 }

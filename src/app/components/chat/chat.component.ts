@@ -23,7 +23,7 @@ export class ChatComponent implements OnInit, OnDestroy {
     this.elemento = document.getElementById('chat-mensajes');
     this.mensajesSubcription = this.chatService.getMessages().subscribe( msg => {
       this.mensajes.push(msg);
-      setTimeout( () =>{
+      setTimeout( () => {
         this.elemento.scrollTop = this.elemento.scrollHeight;
       }, 50);
     });
