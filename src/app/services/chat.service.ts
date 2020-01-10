@@ -29,4 +29,13 @@ export class ChatService {
   getMessagePrivate() {
     return this.wsService.listen('mensaje-privado');
   }
+
+  // Escuchar a los usuarios activos
+  getUsuariosActivos() {
+    return this.wsService.listen('usuarios-activos');
+  }
+
+  emitirUsuariosActivos() {
+    return this.wsService.emitir('obtener-usuarios');
+  }
 }
